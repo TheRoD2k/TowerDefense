@@ -6,15 +6,15 @@ public class MovementAgent : MonoBehaviour
 {
     // determines the object's movement
     [SerializeField]
-    private Vector3 speed = new Vector3(0f, 0f, 0f);
+    private Vector3 speed = new Vector3(0f, 0.5f, 0f);
     [SerializeField]
-    private Vector3 bodyPosition = new Vector3(1000f, 0f, 0f);
+    private Vector3 bodyPosition = new Vector3(4f, 0f, 0f);
     [SerializeField] 
     private Vector3 centerPosition = new Vector3(0f, 0f, 0f);
     [SerializeField]
     private float centerMass = 10f;
     [SerializeField]
-    private float gravityConstant = 0.0001f;
+    private float gravityConstant = 1f;
     
     private const float Tolerance = 2.5f; // non-gravity zone radius
     
