@@ -4,47 +4,43 @@ using UnityEngine;
 
 public class MovementAgent : MonoBehaviour
 {
+    // determines the object's movement
     [SerializeField]
-    private Vector3 m_Speed = new Vector3(0f, 0f, 0f);
-
+    private Vector3 speed = new Vector3(0f, 0f, 0f);
+    [SerializeField]
+    private Vector3 bodyPosition = new Vector3(1000f, 0f, 0f);
     [SerializeField] 
-    private Vector3 m_Center = new Vector3(0f, 0f, 0f);
+    private Vector3 centerPosition = new Vector3(0f, 0f, 0f);
     [SerializeField]
-    private float m_Center_Mass = 10f;
+    private float centerMass = 10f;
+    [SerializeField]
+    private float gravityConstant = 0.0001f;
     
-    private const float TOLERANCE = 0.5f;
+    private const float Tolerance = 2.5f; // non-gravity zone radius
     
     // Start is called before the first frame update
     void Start()
     {
-        //m_Speed = 0f;
-        //m_Target = new Vector3(10f, 0f, 0f);
+        transform.position = bodyPosition;
     }
 
-    private const float k_Grav_Const = 0.0001f;
-    
     void FixedUpdate()
     {
-        Application.targetFrameRate = 144;
+        var currentPosition = transform.position; // save the current position to avoid inefficiency
+        var distance = (centerPosition - currentPosition).magnitude;
+        var accelerationDirection = centerPosition - currentPosition;
+        var acceleration = gravityConstant * centerMass * accelerationDirection.normalized /
+            accelerationDirection.magnitude / accelerationDirection.magnitude; // calculate the acceleration
 
-        float distance = (m_Center - transform.position).magnitude;
-        //if (distance < TOLERANCE)
-        //{
-        //    return;
-       // }
-        Vector3 acceleration_direction = m_Center - transform.position;
-        Vector3 acceleration = k_Grav_Const * m_Center_Mass * acceleration_direction.normalized /
-            acceleration_direction.magnitude / acceleration_direction.magnitude;
-
-        if (distance < 5*TOLERANCE)
+        if (distance < Tolerance) // create the zero gravity zone to avoid artifacts
         {
-            acceleration = acceleration_direction * 0f;
+            acceleration = accelerationDirection * 0f;
         }
-        
-        m_Speed = m_Speed + (acceleration * Time.deltaTime/2);
-        Vector3 delta = m_Speed * Time.deltaTime;    
+ 
+        // calculate the movement
+        var delta = speed * Time.deltaTime + acceleration*(Time.deltaTime*Time.deltaTime/2);
+        speed += acceleration * Time.deltaTime;
 
-        
         transform.Translate(delta);
     }
 }
