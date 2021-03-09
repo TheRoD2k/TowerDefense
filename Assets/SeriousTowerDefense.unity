@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &440536982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,13 +406,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1483404523}
-  m_LocalRotation: {x: 0.2807912, y: -0.0007551572, z: -0.0036991646, w: 0.9597615}
-  m_LocalPosition: {x: -0.02, y: 0.96, z: -1.73}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 32.614, y: -0.24, z: -0.512}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &1483404527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -536,6 +536,7 @@ GameObject:
   - component: {fileID: 2098000543}
   - component: {fileID: 2098000542}
   - component: {fileID: 2098000547}
+  - component: {fileID: 2098000548}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -557,6 +558,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GridWidth: 20
   m_GridHeight: 20
+  m_TargetCoordinate: {x: 0, y: 0}
+  m_StartCoordinate: {x: 19, y: 19}
   m_NodeSize: 0.1
 --- !u!64 &2098000543
 MeshCollider:
@@ -642,7 +645,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2098000541}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 169b62e2bd6e42bd9c894ea5aeef99ee, type: 3}
   m_Name: 
@@ -652,3 +655,17 @@ MonoBehaviour:
   m_NodeSize: 0.1
   m_MovementAgent: {fileID: 440536982}
   m_Cursor: {fileID: 1160484859}
+--- !u!114 &2098000548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098000541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b67ac89bdff14aab931400874089294b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MovementAgent: {fileID: 1496138880772016363, guid: 49b14fe3fc71149428c91fbcd4881f6f, type: 3}
+  m_GridHolder: {fileID: 2098000542}

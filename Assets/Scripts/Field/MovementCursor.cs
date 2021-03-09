@@ -68,7 +68,7 @@ namespace Field
                 {
                     m_Cursor.SetActive(true);
                     m_Cursor.transform.position = hitNodeCenter;
-                    Debug.Log("Cursor enabled and set at " + hitNodeCenter);
+                    //Debug.Log("Cursor enabled and set at " + hitNodeCenter);
                 }
 
                 
@@ -81,7 +81,7 @@ namespace Field
                 // is when it doesn't point to the grid or object
                 if (m_Cursor != null)
                 {
-                    Debug.Log("CURSOR DISABLED");
+                    //Debug.Log("CURSOR DISABLED");
                     m_Cursor.SetActive(false);
                 }
             }
@@ -99,7 +99,7 @@ namespace Field
 
 
         // Draw gizmo grid
-        private void OnDrawGizmos()
+        /*private void OnDrawGizmos()
         {
             Debug.Log(m_Offset);
             Gizmos.color = Color.black;
@@ -119,6 +119,6 @@ namespace Field
             }
             
             //Gizmos.DrawSphere(m_Offset, 1f);
-        }
+        }*/
     }
 }
