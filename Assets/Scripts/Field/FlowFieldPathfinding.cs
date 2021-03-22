@@ -20,13 +20,13 @@ namespace Field
         public float Weight => weight;
     }
 
-    public class FloatFieldPathfinding
+    public class FlowFieldPathfinding
     {
         private Grid m_Grid;
         private Vector2Int m_Target;
         private Vector2Int m_Start;
 
-        public FloatFieldPathfinding(Grid mGrid, Vector2Int mTarget, Vector2Int mStart)
+        public FlowFieldPathfinding(Grid mGrid, Vector2Int mStart, Vector2Int mTarget)
         {
             m_Grid = mGrid;
             m_Target = mTarget;
