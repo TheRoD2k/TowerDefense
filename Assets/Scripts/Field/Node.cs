@@ -16,7 +16,7 @@ namespace Field
         public bool IsOccupied = false;
         
         public float PathWeight;
-        public OccupationAvailability m_OccupationAvailability = OccupationAvailability.Undefined;
+        public OccupationAvailability OccupationAvailability = OccupationAvailability.Undefined;
         public Node(Vector3 position)
         {
             Position = position;

@@ -81,6 +81,11 @@ namespace Field
                 
                 //Debug.Log(x + " " + y);
                 m_Grid.SelectCoordinate(new Vector2Int(x, y));
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Node node = m_Grid.GetNode(x, y);
+                    m_Grid.TryOccupyNode(new Vector2Int(x, y), !node.IsOccupied);
+                }
             }
             else
             {

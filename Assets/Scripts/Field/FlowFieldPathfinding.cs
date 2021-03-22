@@ -40,19 +40,19 @@ namespace Field
                 node.ResetWeight();
                 if (!node.IsOccupied)
                 {
-                    node.m_OccupationAvailability = OccupationAvailability.CanOccupy;
+                    node.OccupationAvailability = OccupationAvailability.CanOccupy;
                 }
                 else
                 {
-                    node.m_OccupationAvailability = OccupationAvailability.CanNotOccupy;
+                    node.OccupationAvailability = OccupationAvailability.CanNotOccupy;
                 }
             }
 
             Node startNode = m_Grid.GetNode(m_Start);
             Node targetNode = m_Grid.GetNode(m_Target);
 
-            startNode.m_OccupationAvailability = OccupationAvailability.CanNotOccupy;
-            targetNode.m_OccupationAvailability = OccupationAvailability.CanNotOccupy;
+            startNode.OccupationAvailability = OccupationAvailability.CanNotOccupy;
+            targetNode.OccupationAvailability = OccupationAvailability.CanNotOccupy;
             Queue<Vector2Int> queue = new Queue<Vector2Int>();
 
             queue.Enqueue(m_Target);
@@ -78,7 +78,7 @@ namespace Field
             Node wayNode = startNode.NextNode;
             while (wayNode != targetNode)
             {
-                wayNode.m_OccupationAvailability = OccupationAvailability.Undefined;
+                wayNode.OccupationAvailability = OccupationAvailability.Undefined;
                 wayNode = wayNode.NextNode;
             }
         }
@@ -130,27 +130,27 @@ namespace Field
                 yield return new Connection(downCoordinate, 1f);
             }
 
-
+            float sqrt2 = 1.414213f;
             // Check "main" nodes there again (we would have to do it anyway)
             // or we can check diagonal ways in previous if ops (a bit faster, much more confusing)
             if (hasUpRightNode && hasRightNode && hasUpNode)
             {
-                yield return new Connection(upRightCoordinate, Mathf.Sqrt(2));
+                yield return new Connection(upRightCoordinate, sqrt2);
             }
 
             if (hasUpLeftNode && hasLeftNode && hasUpNode)
             {
-                yield return new Connection(upLeftCoordinate, Mathf.Sqrt(2));
+                yield return new Connection(upLeftCoordinate, sqrt2);
             }
 
             if (hasDownRightNode && hasRightNode && hasDownNode)
             {
-                yield return new Connection(downRightCoordinate, Mathf.Sqrt(2));
+                yield return new Connection(downRightCoordinate, sqrt2);
             }
 
             if (hasDownLeftNode && hasLeftNode && hasDownNode)
             {
-                yield return new Connection(downLeftCoordinate, Mathf.Sqrt(2));
+                yield return new Connection(downLeftCoordinate, sqrt2);
             }
         }
 
@@ -160,9 +160,9 @@ namespace Field
         {
             Node node = m_Grid.GetNode(coordinate);
 
-            if (node.m_OccupationAvailability == OccupationAvailability.CanOccupy)
+            if (node.OccupationAvailability == OccupationAvailability.CanOccupy)
                 return true;
-            if (node.m_OccupationAvailability == OccupationAvailability.CanNotOccupy)
+            if (node.OccupationAvailability == OccupationAvailability.CanNotOccupy)
                 return false;
 
             foreach (Node tempNode in m_Grid.EnumerateAllNodes())
