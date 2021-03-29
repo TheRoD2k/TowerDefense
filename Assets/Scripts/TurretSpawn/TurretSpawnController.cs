@@ -31,7 +31,7 @@ namespace TurretSpawn
             {
                 Node selectedNode = m_Grid.GetSelectedNode();
 
-                if (selectedNode.IsOccupied /* || !m_Grid.CanOccupy(selectedNode)*/)
+                if (selectedNode.IsOccupied /* || !m_Grid.CanOccupy(selectedNode)*/) // TODO think of implementing; problem - CanOccupy gets Vector2Int
                 {
                     return;
                 }

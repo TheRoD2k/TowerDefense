@@ -109,33 +109,42 @@ namespace Field
             m_Offset = transform.position - (new Vector3(width, 0f, height) * 0.5f);
             m_Grid = new Grid(m_GridWidth, m_GridHeight, m_Offset, m_NodeSize, m_TargetCoordinate, m_StartCoordinate);
         }
-        
+
         private void OnDrawGizmos()
         {
-            
+
             // Draw gizmo grid
-           
-                Debug.Log(m_Offset);
-                Gizmos.color = Color.black;
-                float height = m_GridHeight * m_NodeSize;
-                float width = m_GridWidth * m_NodeSize;
-                for (int i = 0; i <= m_GridWidth; i++)
+            foreach (Node node in m_Grid.EnumerateAllNodes())
+            {
+                if (node.EnemyDatas.Count == 0)
                 {
-                    Vector3 from = m_Offset + new Vector3(i * m_NodeSize, 0f, 0f);
-                    Vector3 to = m_Offset + new Vector3(i * m_NodeSize, 0f, height);
-                    Gizmos.DrawLine(from, to);
+                    continue;
                 }
-                for (int i = 0; i <= m_GridHeight; i++)
-                {
-                    Vector3 from = m_Offset + new Vector3(0f, 0f, i*m_NodeSize);
-                    Vector3 to = m_Offset + new Vector3(width, 0f, i*m_NodeSize);
-                    Gizmos.DrawLine(from, to);
-                }
+                Gizmos.color = Color.white;
+                Gizmos.DrawWireSphere(node.Position, 0.11f);
+            }
+
+            Debug.Log(m_Offset);
+            Gizmos.color = Color.black;
+            float height = m_GridHeight * m_NodeSize;
+            float width = m_GridWidth * m_NodeSize;
+            for (int i = 0; i <= m_GridWidth; i++)
+            {
+                Vector3 from = m_Offset + new Vector3(i * m_NodeSize, 0f, 0f);
+                Vector3 to = m_Offset + new Vector3(i * m_NodeSize, 0f, height);
+                Gizmos.DrawLine(from, to);
+            }
+            for (int i = 0; i <= m_GridHeight; i++)
+            {
+                Vector3 from = m_Offset + new Vector3(0f, 0f, i*m_NodeSize);
+                Vector3 to = m_Offset + new Vector3(width, 0f, i*m_NodeSize);
+                Gizmos.DrawLine(from, to);
+            }
                 
-                //Gizmos.DrawSphere(m_Offset, 1f);
+            //Gizmos.DrawSphere(m_Offset, 1f);
             
-            
-            
+                
+            Gizmos.DrawSphere(m_Grid.GetNode(0, 0).Position, 0.02f);
             if (m_Grid == null)
             {
                 return;

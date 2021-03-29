@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using Enemy;
+using UnityEngine;
 
 namespace Field
 {
@@ -17,8 +19,11 @@ namespace Field
         
         public float PathWeight;
         public OccupationAvailability OccupationAvailability = OccupationAvailability.Undefined;
+        public List<EnemyData> EnemyDatas;
+        
         public Node(Vector3 position)
         {
+            EnemyDatas = new List<EnemyData>();
             Position = position;
         }
         
@@ -26,5 +31,7 @@ namespace Field
         {
             PathWeight = float.MaxValue;
         }
+
+
     }
 }

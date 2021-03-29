@@ -16,7 +16,9 @@ namespace Field
         private Node m_SelectedNode = null;
         
         private FlowFieldPathfinding m_Pathfinding;
-        
+
+        public FlowFieldPathfinding Pathfinding => m_Pathfinding;
+
         public int Width => m_Width;
 
         public int Height => m_Height;
@@ -93,6 +95,36 @@ namespace Field
             return m_Nodes[i, j];
         }
 
+        public Node GetNodeAtPoint(Vector3 point)
+        {
+            Vector3 nodeZeroPosition = GetNode(0, 0).Position;
+            Vector3 nodeOnePosition = GetNode(0, 1).Position;
+            float nodeSize = (nodeOnePosition - nodeZeroPosition).magnitude;
+            float invertNodeSize = 1f / nodeSize;
+            int i = Mathf.RoundToInt((point.x - nodeZeroPosition.x) * invertNodeSize);
+            int j = Mathf.RoundToInt((point.z - nodeZeroPosition.z) * invertNodeSize);
+            return GetNode(i, j);
+        }
+
+        public List<Node> GetNodesInCircle(Vector3 point, float radius)
+        {
+            float sqrRadius = radius * radius;
+            List<Node> nodesCircle = new List<Node>();
+            for (int i = 0; i < m_Width; i++)
+            {
+                for (int j = 0; j < m_Height; j++)
+                {
+                    Node node = GetNode(i, j);
+                    float sqrDistance = (node.Position - point).sqrMagnitude;
+                    if (sqrDistance <= sqrRadius)
+                    {
+                        nodesCircle.Add(node);
+                    }
+                }
+            }
+            return nodesCircle;
+        }
+
         public IEnumerable<Node> EnumerateAllNodes()
         {
             for (int i = 0; i < m_Width; i++)
@@ -125,7 +157,8 @@ namespace Field
                 UpdatePathfinding();
             }
         }
+
     }
     
-    
+
 }
