@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Enemy;
 using Field;
+using Turret;
 using Turret.Weapon;
 using TurretSpawn;
 using UnityEngine;
@@ -13,6 +14,10 @@ namespace Runtime
         private List<EnemyData> m_EnemyDatas = new List<EnemyData>();
 
         public IReadOnlyList<EnemyData> EnemyDatas => m_EnemyDatas;
+
+        private List<TurretData> m_TurretDatas = new List<TurretData>();
+
+        public List<TurretData> TurretDatas => m_TurretDatas;
 
         public readonly GridHolder GridHolder;
         public readonly Grid Grid;
@@ -33,6 +38,11 @@ namespace Runtime
         public void EnemySpawned(EnemyData data)
         {
             m_EnemyDatas.Add(data);
+        }
+
+        public void TurretSpawned(TurretData data)
+        {
+            m_TurretDatas.Add(data);
         }
     }
 }

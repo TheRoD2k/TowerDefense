@@ -46,6 +46,7 @@ namespace TurretSpawn
             TurretData data = new TurretData(asset, node);
             
             data.AttachView(view);
+            Game.Player.TurretSpawned(data);
 
             node.IsOccupied = true; // TryOccupy()
             m_Grid.UpdatePathfinding();
