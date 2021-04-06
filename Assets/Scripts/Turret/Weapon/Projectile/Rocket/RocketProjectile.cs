@@ -54,8 +54,6 @@ namespace Turret.Weapon.Projectile.Rocket
                         enemyData.GetDamage(m_Damage);
                     }
                 }
-
-                
             }
 
             Destroy(gameObject);

@@ -13,7 +13,6 @@ namespace Turret.Weapon.Projectile.Rocket
         private RocketProjectile m_RocketPrefab;
         public override IProjectile CreateProjectile(Vector3 origin, Vector3 originForward, EnemyData enemyData)
         {
-            //m_RocketPrefab.SetTarget(enemyData);
             var instantiatedPrefab = Instantiate(m_RocketPrefab, origin, Quaternion.LookRotation(originForward, Vector3.up));
             instantiatedPrefab.SetTarget(enemyData);
             return instantiatedPrefab;

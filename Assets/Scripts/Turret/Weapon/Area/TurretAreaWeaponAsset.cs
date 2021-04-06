@@ -12,9 +12,7 @@ namespace Turret.Weapon.Area
         public float Damage;
         public override ITurretWeapon GetWeapon(TurretView view)
         {
-            AreaView instantiatedArea = Instantiate(AreaView, view.transform);
-            instantiatedArea.transform.localScale = Vector3.one * (MaxDistance*2*10f);
-            return new TurretAreaWeapon(this, view, instantiatedArea);
+            return new TurretAreaWeapon(this, view, AreaView);
         }
     }
 }
