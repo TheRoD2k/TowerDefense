@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3752d7c6b61466798690223f76e535a, type: 3}
-  m_Name: Turret
+  m_Script: {fileID: 11500000, guid: 6dd8c1bc4c45470aaa863aa20f2f888a, type: 3}
+  m_Name: Turret Area Weapon Asset
   m_EditorClassIdentifier: 
-  ViewPrefab: {fileID: 2809740407311565540, guid: 1e1e2779a78a7f640bfdc6297e715960, type: 3}
-  WeaponAsset: {fileID: 11400000, guid: 93bfda9ab8632ad44a741a54c0e003fb, type: 2}
+  AreaView: {fileID: 8944766668276632206, guid: d4799c4338143544db5d961f965db6e6, type: 3}
+  MaxDistance: 0.5
+  Damage: 10
