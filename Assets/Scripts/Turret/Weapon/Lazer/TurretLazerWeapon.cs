@@ -24,7 +24,8 @@ namespace Turret.Weapon.Lazer
             m_Damage = m_Asset.Damage;
             m_View = view;
             m_NodeCircle = Game.Player.Grid.GetNodesInCircle(view.transform.position, m_MaxDistance);
-            m_LineRenderer = Object.Instantiate(asset.LineRendererPrefab, m_View.ProjectileOrigin.transform);
+            m_LineRenderer = Object.Instantiate(asset.LineRendererPrefab, m_View.ProjectileOrigin.transform, true);
+            m_LineRenderer.positionCount = 2;
         }
 
         public void TickShoot()
@@ -45,17 +46,15 @@ namespace Turret.Weapon.Lazer
             }
             else
             {
+                m_LineRenderer.gameObject.SetActive(true);
                 // Seems like the LineRenderer finds the position even without additional positioning, but I wanted to make sure
                 Vector3 projectileOriginPosition = m_View.ProjectileOrigin.position;
-                m_LineRenderer.transform.position = projectileOriginPosition;
-                m_LineRenderer.transform.LookAt(m_ClosestEnemyData.View.transform);
+                m_LineRenderer.SetPosition(0, projectileOriginPosition);
+                
                
                 // Scale lazer to look nicer
-                Vector3 lazerScale = m_LineRenderer.transform.localScale;
-                float distance = (m_ClosestEnemyData.View.transform.position - projectileOriginPosition).magnitude;
-                lazerScale.z = distance*10;
-                m_LineRenderer.transform.localScale = lazerScale;
-                m_LineRenderer.gameObject.SetActive(true);
+                m_LineRenderer.SetPosition(1, m_ClosestEnemyData.View.transform.position);
+                
             }
             
             TickTower();
