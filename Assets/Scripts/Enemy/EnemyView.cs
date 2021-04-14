@@ -12,6 +12,11 @@ namespace Enemy
 
         public IMovementAgent MovementAgent => m_MovementAgent;
 
+        [SerializeField] 
+        private Animator m_Animator;
+
+        private static readonly int DeathAnimationIndex = Animator.StringToHash("Death");
+
         public void AttachData(EnemyData data)
         {
             m_Data = data;
@@ -27,6 +32,12 @@ namespace Enemy
             {
                 m_MovementAgent = new GridMovementAgent(m_Data.Asset.Speed, transform, grid, m_Data);
             }
+        }
+        
+        public void AnimateDeath()
+        {
+            if (m_Animator != null)
+                m_Animator.SetTrigger(DeathAnimationIndex);
         }
     }
 }

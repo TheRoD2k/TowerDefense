@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67d7c2e73f374473ac1c12f75b9ea027, type: 3}
   m_Name: Arrow
   m_EditorClassIdentifier: 
-  m_BulletPrefab: {fileID: 0}
-  Speed: 0
-  Damage: 0
+  m_BulletPrefab: {fileID: -4223946907323876299, guid: 239c13eb578e0474797ac361e53a5c8d, type: 3}
+  Speed: 40
+  Damage: 5

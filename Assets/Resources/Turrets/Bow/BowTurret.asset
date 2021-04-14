@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3752d7c6b61466798690223f76e535a, type: 3}
   m_Name: BowTurret
   m_EditorClassIdentifier: 
-  ViewPrefab: {fileID: 0}
-  WeaponAsset: {fileID: 0}
+  ViewPrefab: {fileID: 1623930838846759613, guid: f88c9c7679de96543adf7fd95cebbee0, type: 3}
+  WeaponAsset: {fileID: 11400000, guid: 23f2d21ac0acd9142b19b77454f41bb2, type: 2}

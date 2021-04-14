@@ -23,10 +23,16 @@ namespace Field
 
         public int Height => m_Height;
 
+        private float m_NodeSize;
+        private Vector3 m_Offset;
+
         public Grid(int width, int height, Vector3 offset, float nodeSize, Vector2Int start, Vector2Int target)
         {
             m_Width = width;
             m_Height = height;
+            
+            m_NodeSize = nodeSize;
+            m_Offset = offset;
 
             m_StartCoordinate = start;
             m_TargetCoordinate = target;
@@ -97,18 +103,16 @@ namespace Field
 
         public Node GetNodeAtPoint(Vector3 point)
         {
-            Vector3 nodeZeroPosition = GetNode(0, 0).Position;
-            Vector3 nodeOnePosition = GetNode(0, 1).Position;
-            float nodeSize = (nodeOnePosition - nodeZeroPosition).magnitude;
-            float invertNodeSize = 1f / nodeSize;
-            int i = Mathf.RoundToInt((point.x - nodeZeroPosition.x) * invertNodeSize);
-            int j = Mathf.RoundToInt((point.z - nodeZeroPosition.z) * invertNodeSize);
+            float invertNodeSize = 1f / m_NodeSize;
+            int i = Mathf.RoundToInt((point.x - m_Offset.x) * invertNodeSize);
+            int j = Mathf.RoundToInt((point.z - m_Offset.z) * invertNodeSize);
             return GetNode(i, j);
         }
 
         public List<Node> GetNodesInCircle(Vector3 point, float radius)
         {
-            float sqrRadius = radius * radius;
+            float wider_radius = radius + m_NodeSize * 0.70710675f;
+            float sqrRadius = wider_radius * wider_radius;
             List<Node> nodesCircle = new List<Node>();
             for (int i = 0; i < m_Width; i++)
             {

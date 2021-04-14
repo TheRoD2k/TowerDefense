@@ -15,4 +15,4 @@ MonoBehaviour:
   IsFlyingEnemy: 0
   StartHealth: 100
   Speed: 2
-  ViewPrefab: {fileID: -1958084006205983165, guid: 49b14fe3fc71149428c91fbcd4881f6f, type: 3}
+  ViewPrefab: {fileID: -4578145134883367665, guid: a7082ccd63a6a114d91d53eb13c5f239, type: 3}

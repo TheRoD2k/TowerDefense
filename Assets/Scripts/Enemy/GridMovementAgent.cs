@@ -60,6 +60,11 @@ namespace Enemy
             m_Transform.Translate(delta);
         }
 
+        public void Die()
+        {
+            m_CurrentNode.EnemyDatas.Remove(m_EnemyData);
+        }
+
         private void SetTargetNode(Node node)
         {
             m_TargetNode = node;

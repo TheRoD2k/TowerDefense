@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Turret Lazer Weapon Asset
   m_EditorClassIdentifier: 
   MaxDistance: 5
+  Damage: 15
   LineRendererPrefab: {fileID: 2036305468685643048, guid: 7615bdefd308bc149871176bb26911a4, type: 3}

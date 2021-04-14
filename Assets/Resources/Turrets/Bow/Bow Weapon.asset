@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53421d20697f4dedb206e3aec2ae9d18, type: 3}
-  m_Name: BowWeapon
+  m_Name: Bow Weapon
   m_EditorClassIdentifier: 
-  RateOfFire: 0
-  MaxDistance: 0
-  ProjectileAsset: {fileID: 0}
+  RateOfFire: 2.5
+  MaxDistance: 10
+  ProjectileAsset: {fileID: 11400000, guid: e64172663234219478a330650ba2cafb, type: 2}
