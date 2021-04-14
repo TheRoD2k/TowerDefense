@@ -8,8 +8,8 @@ namespace Enemy
     public class EnemyAsset : ScriptableObject
     {
         public bool IsFlyingEnemy;
-        public int StartHealth;
-        
+        public float StartHealth;
+        public float Speed;
         public EnemyView ViewPrefab;
     }
 }

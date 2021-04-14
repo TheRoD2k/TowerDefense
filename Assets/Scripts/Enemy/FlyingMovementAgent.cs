@@ -10,7 +10,7 @@ namespace Enemy
 
         private Transform m_Transform;
 
-        private const float TOLERANCE = 0.0001f;
+        private const float TOLERANCE = 0.01f;
         private EnemyData m_EnemyData;
 
         private Grid m_Grid;

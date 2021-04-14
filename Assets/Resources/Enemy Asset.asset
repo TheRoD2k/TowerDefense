@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 462c678357ac49c8aecf2f713240c559, type: 3}
   m_Name: Enemy Asset
   m_EditorClassIdentifier: 
+  IsFlyingEnemy: 0
   StartHealth: 100
+  Speed: 2
   ViewPrefab: {fileID: -1958084006205983165, guid: 49b14fe3fc71149428c91fbcd4881f6f, type: 3}

@@ -11,11 +11,13 @@ namespace Enemy
         
         public EnemyView View => m_View;
 
-        public readonly EnemyAsset Asset;
-        public EnemyData(EnemyAsset asset)
+        private EnemyAsset m_Asset;
+
+        public EnemyAsset Asset => m_Asset;
+        public EnemyData(EnemyAsset mAsset)
         {
-            Asset = asset;
-            m_Health = asset.StartHealth;
+            m_Asset = mAsset;
+            m_Health = mAsset.StartHealth;
         }
 
         public void AttachView(EnemyView view)

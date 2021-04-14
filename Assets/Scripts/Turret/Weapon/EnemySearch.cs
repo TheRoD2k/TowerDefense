@@ -21,7 +21,7 @@ namespace Turret.Weapon
                     Vector3 enemyPosition = enemyData.View.transform.position;
                     float distance = (enemyPosition - center).sqrMagnitude;
 
-                    if (distance < maxDistance && distance < closestDistance)
+                    if (distance < maxSqrDistance && distance < closestDistance)
                     {
                         closestDistance = distance;
                         closestEnemyData = enemyData;

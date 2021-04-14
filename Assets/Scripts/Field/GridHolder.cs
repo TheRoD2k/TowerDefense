@@ -20,7 +20,7 @@ namespace Field
         
         
         [SerializeField] 
-        private float m_NodeSize = 0.1f;
+        private float m_NodeSize = 1f;
         
         private Grid m_Grid;
 
@@ -121,7 +121,7 @@ namespace Field
                     continue;
                 }
                 Gizmos.color = Color.white;
-                Gizmos.DrawWireSphere(node.Position, 0.11f);
+                Gizmos.DrawWireSphere(node.Position, 1.1f);
             }
 
             Debug.Log(m_Offset);
@@ -144,7 +144,7 @@ namespace Field
             //Gizmos.DrawSphere(m_Offset, 1f);
             
                 
-            Gizmos.DrawSphere(m_Grid.GetNode(0, 0).Position, 0.02f);
+            Gizmos.DrawSphere(m_Grid.GetNode(0, 0).Position, 2f);
             if (m_Grid == null)
             {
                 return;
@@ -160,7 +160,7 @@ namespace Field
                 if (node.IsOccupied)
                 {
                     Gizmos.color = Color.black;
-                    Gizmos.DrawSphere(node.Position, 0.05f);
+                    Gizmos.DrawSphere(node.Position, 5f);
                     continue;
                 }
                 Gizmos.color = Color.red;

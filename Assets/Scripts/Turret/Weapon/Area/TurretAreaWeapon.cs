@@ -26,7 +26,7 @@ namespace Turret.Weapon.Area
             Vector3 position = m_View.transform.position;
             m_NodeCircle = Game.Player.Grid.GetNodesInCircle(position, m_MaxDistance);
             AreaView instantiatedArea = AreaView.Instantiate(m_AreaView, view.transform);
-            instantiatedArea.transform.localScale = Vector3.one * (m_MaxDistance*2*10f);
+            instantiatedArea.transform.localScale = Vector3.one * (m_MaxDistance*20f);
         }
 
         public void TickShoot()
