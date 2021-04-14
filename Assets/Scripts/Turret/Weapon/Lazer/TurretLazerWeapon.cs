@@ -46,15 +46,12 @@ namespace Turret.Weapon.Lazer
             }
             else
             {
-                m_LineRenderer.gameObject.SetActive(true);
-                // Seems like the LineRenderer finds the position even without additional positioning, but I wanted to make sure
+                var closestEnemyPosition = m_ClosestEnemyData.View.transform.position;
+                m_View.TowerLookAt(closestEnemyPosition);
                 Vector3 projectileOriginPosition = m_View.ProjectileOrigin.position;
                 m_LineRenderer.SetPosition(0, projectileOriginPosition);
-                
-               
-                // Scale lazer to look nicer
-                m_LineRenderer.SetPosition(1, m_ClosestEnemyData.View.transform.position);
-                
+                m_LineRenderer.SetPosition(1, closestEnemyPosition);
+                m_LineRenderer.gameObject.SetActive(true);
             }
             
             TickTower();
